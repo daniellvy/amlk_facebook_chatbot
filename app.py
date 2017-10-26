@@ -16,6 +16,7 @@ def _parse_mako(html):
     try:
         soup = BeautifulSoup(html, "html.parser")
     except:
+        log("Couldn't beautifulsoup issue")
         return None, None, None
 
     # Extract title
