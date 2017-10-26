@@ -38,14 +38,14 @@ def webhook():
 
                         urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', message_text)
                         if len(urls) == 0:
-                            send_message(sender_id, "שלח לינק לקבלת אמ;לק אוטומטי")
+                            send_message(sender_id, u'שלח לינק לכתבה לקבלת אמ;לק')
 
                         r = requests.get(urls[0])
                         if r.status_code == 200:
                             content = str(r.content)
                             send_message(sender_id, content[:40])
                         else:
-                            send_message(sender_id, "הלינק ששלחת לא תקין")
+                            send_message(sender_id, u'הלינק ששלחת לא תקין')
 
 
                     if messaging_event.get("delivery"):  # delivery confirmation
