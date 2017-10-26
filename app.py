@@ -60,7 +60,7 @@ def webhook():
                                         log(domain)
                                         log(domain == "ynet")
 
-                                        t, s, ps = parse_article(str(r.content), domain)
+                                        t, s, ps = parse_article(str(r.content).encode("UTF-8"), domain)
                                         log("Parsed succeeded")
                                         #log(t.decode("utf-8"))
                                         #log(s.decode("utf-8"))
