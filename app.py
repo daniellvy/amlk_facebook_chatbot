@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import re
 from datetime import datetime
 
 import requests
@@ -34,7 +35,18 @@ def webhook():
                         sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
                         recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
                         message_text = messaging_event["message"]["text"]  # the message's text
-                        send_message(sender_id, "Bar Refaeli!")
+
+                        urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', message_text)
+                        if len(urls) == 0:
+                            send_message(sender_id, "שלח לינק לקבלת אמ;לק אוטומטי")
+
+                        r = requests.get(urls[0])
+                        if r.status_code == 200:
+                            content = str(r.content)
+                            send_message(sender_id, content[:40])
+                        else:
+                            send_message(sender_id, "הלינק ששלחת לא תקין")
+
 
                     if messaging_event.get("delivery"):  # delivery confirmation
                         pass
@@ -48,7 +60,7 @@ def webhook():
 
 def send_message(recipient_id, message_text):
 
-    log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
+    #log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
 
     params = {
         "access_token": os.environ["PAGE_ACCESS_TOKEN"]
@@ -82,5 +94,5 @@ def log(msg, *args, **kwargs):  # simple wrapper for logging to stdout on heroku
     sys.stdout.flush()
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+#if __name__ == '__main__':
+    #app.run(debug=True)
