@@ -276,7 +276,7 @@ def webhook():
 
                         urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', message_text)
                         if len(urls) == 0:
-                            rank = re.find("[1-5]",message_text)
+                            rank = re.findall("[1-5]",message_text)
                             if len(rank) == 0:
                                 send_message(sender_id, u'שלח לינק לכתבה לקבלת אמ;לק')
                             else:
