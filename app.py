@@ -292,8 +292,6 @@ def webhook():
                                         t, s, ps = parse_article(str(r.content), domain)
                                         #log(t.decode("utf-8"))
                                         #log(s.decode("utf-8"))
-                                        sub = ""
-                                        title = ""
                                         if domain == "ynet":
                                             sub = s.decode("utf-8")
                                             title = t.decode("utf-8")
@@ -303,17 +301,14 @@ def webhook():
 
                                         log("Finished parsing")
                                         # Get TLDR from model
-                                        log("Title")
-                                        log(title)
-                                        log("Sub")
-                                        log(sub)
+                                        log("Title" + title)
+                                        log("Sub" + sub)
                                         log("Paras")
-                                        log(ps)
+                                        #log(ps)
                                         data_frame = url_pipeline(title, sub, ps)
                                         log("url_pipe")
                                         df = make_df(data_frame)
                                         log(df.shape)
-
 
 
                                         send_message(sender_id, title)
