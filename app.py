@@ -52,6 +52,7 @@ def webhook():
                                 try:
                                     log("URL " + urls[0])
                                     r = requests.get(urls[0])
+                                    log("Got request")
                                     log("Status code " + r.status_code)
                                     if r.status_code == 200:
                                         content = r.content
