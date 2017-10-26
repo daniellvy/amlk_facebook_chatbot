@@ -62,10 +62,9 @@ def webhook():
 
                                         t, s, ps = parse_article(str(r.content), domain)
                                         log("Parsed succeeded")
-                                        log(t.decode("UTF-8"))
-                                        log(str(s))
-                                        log(str(ps[0]))
-                                        #send_message(sender_id, str(t))
+                                        log(t.decode("utf-8"))
+                                        log(s.decode("utf-8"))
+                                        send_message(sender_id, t.decode("utf-8"))
                                         log("Sent message")
                                     else:
                                         send_message(sender_id, u'הלינק ששלחת לא תקין')
