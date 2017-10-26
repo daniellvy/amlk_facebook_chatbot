@@ -60,7 +60,7 @@ def webhook():
                                     else:
                                         send_message(sender_id, u'הלינק ששלחת לא תקין')
                                 except:
-                                    send_message(sender_id, u'הלינק ששלחת לא תקין')
+                                    send_message(sender_id, u'שגיאה בקריאת הכתבה')
 
                     if messaging_event.get("delivery"):  # delivery confirmation
                         pass
