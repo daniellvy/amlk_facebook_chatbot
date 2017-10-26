@@ -1,3 +1,12 @@
+import requests
+from bs4 import BeautifulSoup
+import os
+import sys
+import json
+import re
+from link_parser import *
+from datetime import datetime
+
 def _parse_mako(html):
     '''gets html from mako and parses the needed text'''
     try:
@@ -33,12 +42,14 @@ def _parse_ynet(html):
     try:
         title = re.findall(r'\"headline\": \"(.*)\"', html)[0]
     except:
+        log("Couldn't parse title")
         title = ''
 
     # Extract subtitle
     try:
         subtitle = re.findall(r'\"description\": \"(.*)\"', html)[0]
     except:
+        log("Couldn't parse subtitle")
         subtitle = ''
 
     # Extract paragraphs
@@ -46,6 +57,7 @@ def _parse_ynet(html):
         soup = BeautifulSoup(html, "html.parser")
         paragraphs = [p.get_text() for p in soup.find_all("p", text=True)]
     except:
+        log("Couldn't parse paragraphs")
         paragraphs = []
 
     return title, subtitle, paragraphs
@@ -102,3 +114,15 @@ def parse_article(html, domain):
     else:
         return None, None, None
     return parsed
+
+
+def log(msg, *args, **kwargs):  # simple wrapper for logging to stdout on heroku
+    try:
+        if type(msg) is dict:
+            msg = json.dumps(msg)
+        else:
+            msg = unicode(msg).format(*args, **kwargs)
+        print u"{}: {}".format(datetime.now(), msg)
+    except UnicodeEncodeError:
+        pass  # squash logging errors in case of non-ascii text
+    sys.stdout.flush()
