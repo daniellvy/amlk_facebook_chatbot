@@ -51,7 +51,7 @@ def webhook():
                                     if r.status_code == 200:
                                         content = str(r.content)
                                         t, s, ps = parse_article(content, domain)
-                                        send_message(sender_id, "Title: " + t.decode("UTF-8"))
+                                        send_message(sender_id, "Title: " + t.encode("UTF-8"))
                                         send_message(sender_id, "Subtitle: " + s)
                                     else:
                                         send_message(sender_id, u'הלינק ששלחת לא תקין')
@@ -70,7 +70,7 @@ def webhook():
 
 def send_message(recipient_id, message_text):
 
-    log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
+    #log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
 
     params = {
         "access_token": os.environ["PAGE_ACCESS_TOKEN"]
