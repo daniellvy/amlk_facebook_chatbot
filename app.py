@@ -50,7 +50,9 @@ def webhook():
                                 send_message(sender_id, u'זוהי גרסה ראשונית של הבוט, האתרים הנתמכים הם ynet, mako ו-walla')
                             else:
                                 try:
+                                    log("URL " + urls[0])
                                     r = requests.get(urls[0])
+                                    log("Status code " + r.status_code)
                                     if r.status_code == 200:
                                         content = r.content
                                         t, s, ps = parse_article(content, domain)
