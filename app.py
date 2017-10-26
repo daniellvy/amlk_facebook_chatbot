@@ -178,6 +178,8 @@ def webhook():
                                         log(t.decode("utf-8"))
                                         log(s.decode("utf-8"))
                                         send_message(sender_id, s.decode("utf-8"))
+                                        send_message(sender_id, ps[0].decode("utf-8"))
+
                                     else:
                                         send_message(sender_id, u'הלינק ששלחת לא תקין')
                                 except:
