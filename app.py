@@ -75,6 +75,7 @@ def _parse_walla(html):
     try:
         soup = BeautifulSoup(html, "html.parser")
     except:
+        log("Couldn't parse Beautiful soup")
         return None, None, None
 
     # Extract title
