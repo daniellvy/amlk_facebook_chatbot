@@ -315,7 +315,7 @@ def webhook():
 
                                         #send_message(sender_id, title)
                                         send_message(sender_id, sub)
-                                        send_message(sender_id, u'לצורכי שיפור נשמח אם תדרג את האמ;לק מ 1-5')
+                                        send_message(sender_id, u'לצורכי שיפור נשמח אם תדרג את האמ;לק בין 1-5')
 
                                         #send_message(sender_id, ps[0])
                                     else:
