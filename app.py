@@ -276,7 +276,11 @@ def webhook():
 
                         urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', message_text)
                         if len(urls) == 0:
-                            send_message(sender_id, u'שלח לינק לכתבה לקבלת אמ;לק')
+                            rank = re.find("[1-5]",message_text)
+                            if len(rank) == 0:
+                                send_message(sender_id, u'שלח לינק לכתבה לקבלת אמ;לק')
+                            else:
+                                send_message(sender_id, u'תודה!')
                         else:
                             domain = which_domain(urls[0])
                             if domain not in ['ynet', 'walla', 'mako']:
@@ -309,12 +313,11 @@ def webhook():
                                         #log(df.shape)
                                         #log("Built data frame")
 
-
-
                                         #send_message(sender_id, title)
                                         send_message(sender_id, sub)
-                                        #send_message(sender_id, ps[0])
+                                        send_message(sender_id, u'לצורכי שיפור נשמח אם תדרג את האמ;לק מ 1-5')
 
+                                        #send_message(sender_id, ps[0])
                                     else:
                                         send_message(sender_id, u'הלינק ששלחת לא תקין')
                                 except Exception as e:
