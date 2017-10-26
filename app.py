@@ -303,6 +303,9 @@ def webhook():
 
                                         log("Finished parsing")
                                         # Get TLDR from model
+                                        log(title)
+                                        log(sub)
+                                        log(ps)
                                         data_frame = url_pipeline(title, sub, ps)
                                         log("url_pipe")
                                         df = make_df(data_frame)
