@@ -55,6 +55,7 @@ def webhook():
                                     log("Got request")
                                     if r.status_code == 200:
                                         log("Status code 200")
+                                        log(str(r.content))
                                         t, s, ps = parse_article(str(r.content), domain)
                                         log("Parsed succeeded")
                                         log(t)
