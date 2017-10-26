@@ -53,7 +53,11 @@ def webhook():
                                     r = requests.get(urls[0])
                                     if r.status_code == 200:
                                         content = str(r.content)
+                                        log("Content to {c}".format(c=content)
+
                                         t, s, ps = parse_article(content, domain)
+                                        log("Title to {titl}".format(titl=t)
+
                                         send_message(sender_id, u'Title: ' + t.encode("UTF-8"))
                                         send_message(sender_id, u'Subtitle: ' + s.encode("UTF-8"))
                                     else:
@@ -73,7 +77,7 @@ def webhook():
 
 def send_message(recipient_id, message_text):
 
-    log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
+    #log("sending message to {recipient}: {text}".format(recipient=recipient_id, text=message_text))
 
     params = {
         "access_token": os.environ["PAGE_ACCESS_TOKEN"]
