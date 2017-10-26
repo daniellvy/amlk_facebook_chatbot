@@ -34,9 +34,12 @@ def webhook():
             if "messaging" in entry:
                 for messaging_event in entry["messaging"]:
                     if messaging_event.get("message"):  # someone sent us a message
-                        sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
-                        recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
-                        message_text = messaging_event["message"]["text"]  # the message's text
+                        try:
+                            sender_id = messaging_event["sender"]["id"]        # the facebook ID of the person sending you the message
+                            recipient_id = messaging_event["recipient"]["id"]  # the recipient's ID, which should be your page's facebook ID
+                            message_text = messaging_event["message"]["text"]  # the message's text
+                        except:
+                            return "ok", 200
 
                         urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', message_text)
                         if len(urls) == 0:
