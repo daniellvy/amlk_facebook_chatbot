@@ -183,9 +183,9 @@ def webhook():
                                         else:
                                             sub = s
                                             title = t
-                                            
-                                        send_message(sender_id, t.decode("utf-8"))
-                                        send_message(sender_id, s.decode("utf-8"))
+
+                                        send_message(sender_id, title)
+                                        send_message(sender_id, sub)
                                         send_message(sender_id, ps[0])
 
                                     else:
