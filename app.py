@@ -50,6 +50,8 @@ def webhook():
                                 send_message(sender_id, u'זוהי גרסה ראשונית של הבוט, האתרים הנתמכים הם ynet, mako ו-walla')
                             else:
                                 try:
+                                    domain = "mako"
+                                    urls[0] = "http://www.deanla.com"
                                     log("URL " + urls[0])
                                     r = requests.get(urls[0])
                                     log("Got request")
@@ -63,7 +65,7 @@ def webhook():
                                         log(str(t))
                                         log(str(s))
 
-                                        #send_message(sender_id, t.encode("UTF-8"))
+                                        #send_message(sender_id, str(t))
                                         log("Sent message")
                                     else:
                                         send_message(sender_id, u'הלינק ששלחת לא תקין')
