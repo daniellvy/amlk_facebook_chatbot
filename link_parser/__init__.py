@@ -18,18 +18,21 @@ def _parse_mako(html):
     try:
         title = [p.get_text() for p in soup.find_all("h1", text=True)][0]
     except:
+        log("Couldn't parse title")
         title = ''
 
     # Extract subtitle
     try:
         subtitle = [p.get_text() for p in soup.find_all("h2", text=True)][0]
     except:
+        log("Couldn't parse subtitle")
         subtitle = ''
 
     # Extract paragraphs
     try:
         paragraphs = [p.get_text() for p in soup.find_all("p", text=True)]
     except:
+        log("Couldn't parse paragraph")
         paragraphs = []
 
     return title, subtitle, paragraphs
@@ -74,18 +77,21 @@ def _parse_walla(html):
     try:
         title = [p.get_text() for p in soup.find_all("h1", text=True)][0]
     except:
+        log("Couldn't parse title")
         title = ''
 
     # Extract subtitle
     try:
         subtitle = [p.get_text() for p in soup.find_all(True, {"class": "subtitle"}, text=True)][0]
     except:
+        log("Couldn't parse subtitle")
         subtitle = ''
 
     # Extract paragraphs
     try:
         paragraphs = [p.get_text() for p in soup.find_all("p", text=True)]
     except:
+        log("Couldn't parse paragraph")
         paragraphs = []
 
     return title, subtitle, paragraphs
