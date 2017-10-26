@@ -29,7 +29,7 @@ def webhook():
     data = request.get_json()
     log(data)  # you may not want to log every incoming message in production, but it's good for testing
 
-    if data["object"] == "page":
+    #if data["object"] == "page":
 
         #for entry in data["entry"]:
         #    for messaging_event in entry["messaging"]:
