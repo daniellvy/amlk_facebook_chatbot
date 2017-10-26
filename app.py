@@ -42,7 +42,7 @@ def webhook():
                         if len(urls) == 0:
                             send_message(sender_id, u'שלח לינק לכתבה לקבלת אמ;לק')
                         else:
-                            domain = parser.which_domain(urls[0])
+                            domain = which_domain(urls[0])
                             if domain not in ['ynet', 'walla', 'mako']:
                                 send_message(sender_id, u'זוהי גרסה ראשונית של הבוט, האתרים הנתמכים הם ynet, mako ו-walla')
                             else:
@@ -50,7 +50,7 @@ def webhook():
                                     r = requests.get(urls[0])
                                     if r.status_code == 200:
                                         content = str(r.content)
-                                        t, s, ps = parser.parse_article(content, domain)
+                                        t, s, ps = parse_article(content, domain)
                                         send_message(sender_id, "Title: " + t)
                                         send_message(sender_id, "Subtitle: " + s)
                                     else:
