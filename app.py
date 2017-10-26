@@ -52,10 +52,9 @@ def webhook():
                                 try:
                                     r = requests.get(urls[0])
                                     if r.status_code == 200:
-                                        content = str(r.content)
+                                        content = r.content
                                         t, s, ps = parse_article(content, domain)
-                                        send_message(sender_id, u'Title: {}'.format(t))
-                                        send_message(sender_id, u'Subtitle: ' + s)
+                                        send_message(sender_id, t)
                                     else:
                                         send_message(sender_id, u'הלינק ששלחת לא תקין')
                                 except:
