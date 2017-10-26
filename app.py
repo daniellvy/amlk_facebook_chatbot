@@ -302,20 +302,18 @@ def webhook():
                                             title = t
 
                                         log("Finished parsing")
+
                                         # Get TLDR from model
-                                        log("Title" + title)
-                                        log("Sub" + sub)
-                                        log("Paras")
-                                        #log(ps)
-                                        data_frame = url_pipeline(title, sub, ps)
-                                        log("url_pipe")
-                                        df = make_df(data_frame)
-                                        log(df.shape)
+                                        #data_frame = url_pipeline(title, sub, ps)
+                                        #df = make_df(data_frame)
+                                        #log(df.shape)
+                                        #log("Built data frame")
 
 
-                                        send_message(sender_id, title)
+
+                                        #send_message(sender_id, title)
                                         send_message(sender_id, sub)
-                                        send_message(sender_id, ps[0])
+                                        #send_message(sender_id, ps[0])
 
                                     else:
                                         send_message(sender_id, u'הלינק ששלחת לא תקין')
