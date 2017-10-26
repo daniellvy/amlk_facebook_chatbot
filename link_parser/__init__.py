@@ -96,7 +96,7 @@ def parse_article(html, domain):
     if domain == 'walla':
         parsed = _parse_walla(html)
     elif domain == 'ynet':
-        parsed = _parse_ynet((html))
+        parsed = _parse_ynet(html)
     elif domain == 'mako':
         parsed = _parse_mako(html)
     else:
