@@ -62,8 +62,7 @@ def webhook():
 
                                         t, s, ps = parse_article(str(r.content), domain)
                                         log("Parsed succeeded")
-                                        log(str(r.content))
-                                        log(str(t))
+                                        log(t.decode("UTF-8"))
                                         log(str(s))
                                         log(str(ps[0]))
                                         #send_message(sender_id, str(t))
