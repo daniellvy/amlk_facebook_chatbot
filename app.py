@@ -166,10 +166,6 @@ def webhook():
                                 send_message(sender_id, u'זוהי גרסה ראשונית של הבוט, האתרים הנתמכים הם ynet, mako ו-walla')
                             else:
                                 try:
-                                    import bs4
-                                except:
-                                    log("BS4!")
-                                try:
                                     #domain = "mako"
                                     #urls[0] = "http://www.deanla.com"
                                     log("URL " + urls[0])
@@ -179,8 +175,16 @@ def webhook():
                                         log("Status code 200")
                                         log(domain)
                                         t, s, ps = parse_article(str(r.content), domain)
-                                        log(t.decode("utf-8"))
-                                        log(s.decode("utf-8"))
+                                        #log(t.decode("utf-8"))
+                                        #log(s.decode("utf-8"))
+                                        if domain == "ynet":
+                                            sub = s.decode("utf-8")
+                                            title = t.decode("utf-8")
+                                        else:
+                                            sub = s
+                                            title = t
+                                            
+                                        send_message(sender_id, t.decode("utf-8"))
                                         send_message(sender_id, s.decode("utf-8"))
                                         send_message(sender_id, ps[0])
 
