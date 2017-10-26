@@ -55,7 +55,7 @@ def webhook():
                                     log("Got request")
                                     log("Status code " + str(r.status_code))
                                     if r.status_code == 200:
-                                        content = r.content
+                                        content = str(r.content)
                                         t, s, ps = parse_article(content, domain)
                                         send_message(sender_id, t)
                                     else:
