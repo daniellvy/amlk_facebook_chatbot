@@ -7,6 +7,8 @@ import re
 from datetime import datetime
 from bs4 import BeautifulSoup
 from collections import Counter
+import pandas as pd
+import numpy as np
 
 import requests
 from flask import Flask, request
