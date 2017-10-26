@@ -4,7 +4,7 @@ import sys
 import json
 import re
 from datetime import datetime
-from bs import BeautifulSoup
+from bs4 import BeautifulSoup
 
 import requests
 from flask import Flask, request
