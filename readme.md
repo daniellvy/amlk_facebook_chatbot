@@ -5,7 +5,7 @@ Read more in my [tutorial that uses this repository](https://blog.hartleybrody.c
 
 *New:* [Check out my Facebook Messenger Bot Course](https://facebook-messenger-bot.teachable.com/p/facebook-messenger-bot/). It walks you through the process of getting this bot hosted on heroku step-by-step, and also unlocks all the content that's hidden in this repo's branches.
 
-## "Callback verification failed"
+## "Callback verification failed" 
 
 ![Facebook Error](https://cloud.githubusercontent.com/assets/18402893/21538944/f96fcd1e-cdc7-11e6-83ee-a866190d9080.png)
 
