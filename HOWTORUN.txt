@@ -1,0 +1,17 @@
+After updating the code, push it to the Github repo. Heroku will update code and redeploy the server.
+
+Heroku app name - guarded-reaches-56782
+
+Useful heroku commands -
+	To login to heroku - 
+		heroku login
+	Restart server - 
+		heroku restart
+	Check server logs - 
+		heroku logs -t
+
+	To connect directory to app
+		heroku git:remote -a <app name>
+
+	To push the code to GitHub repo -
+		git push heroku master
