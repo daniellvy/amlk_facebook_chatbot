@@ -1,10 +1,12 @@
 # Hebrew TL;DR Facebook Messenger Chatbot
 To deploy new code you will need to install [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli).
+
 Clone repository, update the code and use deploy_code.bat script.
+
 It will push the code to this repository, restart the web server and display a live log from the server, if the code is
 buggy then all the issues will show on the log.
 
-If you are running on a UNIX machine, you can deploy the server locally, cannot do that on Windoes yet.
+If you are running on a UNIX machine, you can deploy the server locally, cannot do that on Windows yet.
 
 
 

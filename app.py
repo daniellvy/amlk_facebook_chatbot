@@ -314,7 +314,16 @@ def webhook():
                                         #log("Built data frame")
 
                                         #send_message(sender_id, title)
-                                        send_message(sender_id, sub)
+
+                                        # Get the first sentence from the subtitle, if it is less than 15 letters get
+                                        # another sentence
+                                        sub_sents = sub.split(".")
+                                        short_sub = sub_sents[0]
+                                        if len(short_sub) < 15 and len(sub_sents) > 1:
+                                            short_sub = short_sub + ". " + sub_sents[1]
+                                            short_sub = short_sub.strip()
+
+                                        send_message(sender_id, short_sub)
                                         send_message(sender_id, u'לצורכי שיפור נשמח אם תדרג את האמ;לק בין 1-5')
 
                                         #send_message(sender_id, ps[0])
