@@ -2,7 +2,7 @@ After updating the code, commit it and push it to the Github repo. Heroku will u
 You can use deploy_code.bat for quick deploy, restart server and check live logs from the server.
 
 
-Heroku app name - guarded-reaches-56782
+Heroku app name - amlk
 
 Useful heroku commands -
 	To login to heroku - 
