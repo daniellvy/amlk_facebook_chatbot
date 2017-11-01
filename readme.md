@@ -1,7 +1,7 @@
 # Hebrew TL;DR Facebook Messenger Chatbot
 To deploy new code you will need to install [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli).
 
-Clone repository, update the code and use deploy_code.bat script.
+Clone repository, update the code, commit it and use deploy_code.bat script.
 
 It will push the code to this repository, restart the web server and display a live log from the server, if the code is
 buggy then all the issues will show on the log.
@@ -9,15 +9,13 @@ buggy then all the issues will show on the log.
 If you are running on a UNIX machine, you can deploy the server locally, cannot do that on Windows yet.
 
 
-
 # Regarding Facebook Messenger Bot
 This is a simple python template that uses Flask to build a webhook for Facebook's Messenger Bot API.
 
-Read more in my [tutorial that uses this repository](https://blog.hartleybrody.com/fb-messenger-bot/).
+This bot was built from [this tutorial](https://blog.hartleybrody.com/fb-messenger-bot/).
 
-*New:* [Check out my Facebook Messenger Bot Course](https://facebook-messenger-bot.teachable.com/p/facebook-messenger-bot/). It walks you through the process of getting this bot hosted on heroku step-by-step, and also unlocks all the content that's hidden in this repo's branches.
 
-## "Callback verification failed"
+## Common issue - "Callback verification failed"
 
 ![Facebook Error](https://cloud.githubusercontent.com/assets/18402893/21538944/f96fcd1e-cdc7-11e6-83ee-a866190d9080.png)
 
