@@ -1,4 +1,14 @@
-# Facebook Messenger Bot
+# Hebrew TL;DR Facebook Messenger Chatbot
+To deploy new code you will need to install Heroku CLI [https://devcenter.heroku.com/articles/heroku-cli].
+Clone repository, update the code and use deploy_code.bat script.
+It will push the code to this repository, restart the web server and display a live log from the server, if the code is
+buggy then all the issues will show on the log.
+
+If you are running on a UNIX machine, you can deploy the server locally, cannot do that on Windows yet.
+
+
+
+# Regarding Facebook Messenger Bot
 This is a simple python template that uses Flask to build a webhook for Facebook's Messenger Bot API.
 
 Read more in my [tutorial that uses this repository](https://blog.hartleybrody.com/fb-messenger-bot/).
